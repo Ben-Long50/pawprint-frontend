@@ -52,7 +52,7 @@ const Notification = (props) => {
       <div className="flex items-center">
         <Link
           to={
-            activeProfile.id === props.profile.id
+            activeProfile?.id === props.profile.id
               ? `/profile`
               : `/profile/${props.profile.username}`
           }
@@ -67,7 +67,7 @@ const Notification = (props) => {
         <div className="flex flex-col">
           <Link
             to={
-              activeProfile.id === props.profile.id
+              activeProfile?.id === props.profile.id
                 ? `/profile`
                 : `/profile/${props.profile.username}`
             }

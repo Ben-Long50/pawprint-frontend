@@ -36,7 +36,7 @@ const Create = (props) => {
       formData.append('image', file);
     }
     formData.append('caption', captionInput);
-    formData.append('author', activeProfile.id);
+    formData.append('author', activeProfile?.id);
     post.mutate(formData);
     setFile(null);
     setImagePreview(null);
@@ -129,7 +129,7 @@ const Create = (props) => {
                   placeholder="Caption..."
                 />
                 <p className="text-tertiary self-end text-nowrap text-sm">
-                  {captionInput.length} / 150
+                  {captionInput?.length} / 150
                 </p>
               </div>
             </div>

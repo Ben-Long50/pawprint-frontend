@@ -20,7 +20,7 @@ const Comment = (props) => {
   useEffect(() => {
     let status = false;
     props.likes?.forEach((like) => {
-      if (like.profileId === activeProfile.id) {
+      if (like.profileId === activeProfile?.id) {
         status = true;
       }
     });
@@ -29,7 +29,7 @@ const Comment = (props) => {
 
   const toggleLikeStatus = useCommentLikeMutation(
     props.id,
-    activeProfile.id,
+    activeProfile?.id,
     apiUrl,
     likeStatus,
   );
@@ -47,9 +47,9 @@ const Comment = (props) => {
       className={`${deleteMode ? 'comment-layout-2' : 'comment-layout'} timing grid w-full overflow-hidden`}
     >
       <div
-        className={`${props.className} ${activeProfile.id === props.profile.id ? 'bg-secondary-2 cursor-pointer' : 'bg-secondary'} z-20 col-start-1 col-end-2 row-start-1 row-end-2 flex items-start p-4`}
+        className={`${props.className} ${activeProfile?.id === props.profile.id ? 'bg-secondary-2 cursor-pointer' : 'bg-secondary'} z-20 col-start-1 col-end-2 row-start-1 row-end-2 flex items-start p-4`}
         onClick={
-          activeProfile.id === props.profile.id
+          activeProfile?.id === props.profile.id
             ? confirmDeleteMode
               ? () => {
                   toggleDeleteMode();
@@ -61,7 +61,7 @@ const Comment = (props) => {
       >
         <Link
           to={
-            activeProfile.id === props.profile.id
+            activeProfile?.id === props.profile.id
               ? `/profile`
               : `/profile/${props.profile.username}`
           }
@@ -81,7 +81,7 @@ const Comment = (props) => {
         <div className="flex flex-col gap-1">
           <Link
             to={
-              activeProfile.id === props.profile.id
+              activeProfile?.id === props.profile.id
                 ? `/profile`
                 : `/profile/${props.profile.username}`
             }
@@ -103,7 +103,9 @@ const Comment = (props) => {
         {props.likes && (
           <div className="ml-auto flex items-center self-center">
             {props.likes?.length > 0 && (
-              <p className="text-tertiary ml-3 text-sm">{props.likes.length}</p>
+              <p className="text-tertiary ml-3 text-sm">
+                {props.likes?.length}
+              </p>
             )}
             {toggleLikeStatus.isPending ? (
               <Loading className="mx-3 bg-transparent" size={0.8} />
@@ -122,7 +124,7 @@ const Comment = (props) => {
           </div>
         )}
       </div>
-      {activeProfile.id === props.profile.id && (
+      {activeProfile?.id === props.profile.id && (
         <button
           className={`${confirmDeleteMode ? 'grid-cols-confirmDelete' : 'grid-cols-delete'} timing z-10 col-start-2 col-end-3 row-start-1 row-end-2 grid grid-rows-1 bg-red-600 text-gray-50`}
           onClick={

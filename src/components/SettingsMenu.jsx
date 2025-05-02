@@ -39,7 +39,7 @@ const SettingsMenu = (props) => {
       <Link
         tabIndex={-1}
         className="w-full"
-        to={`/profile/${activeProfile.username}/edit`}
+        to={`/profile/${activeProfile?.username}/edit`}
         state={activeProfile}
       >
         <button

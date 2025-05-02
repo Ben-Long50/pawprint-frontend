@@ -20,6 +20,7 @@ const AccountEdit = () => {
 
   const deleteAccount = useDeleteAccountMutation(apiUrl);
 
+  const [usernameInput, setUsernameInput] = useState('');
   const [emailInput, setEmailInput] = useState('');
   const [firstNameInput, setFirstNameInput] = useState('');
   const [lastNameInput, setLastNameInput] = useState('');
@@ -28,6 +29,7 @@ const AccountEdit = () => {
 
   useEffect(() => {
     if (account.data) {
+      setUsernameInput(account.data.username || '');
       setEmailInput(account.data.email || '');
       setFirstNameInput(account.data.firstName || '');
       setLastNameInput(account.data.lastName || '');
@@ -38,23 +40,25 @@ const AccountEdit = () => {
     setErrors([]);
     e.preventDefault();
     const formData = new FormData();
-
-    if (emailInput.length > 0 && emailInput !== account.data.email) {
+    if (usernameInput?.length > 0 && emailInput !== account.data.username) {
+      formData.append('username', usernameInput);
+    }
+    if (emailInput?.length > 0 && emailInput !== account.data.email) {
       formData.append('email', emailInput);
     }
     if (
-      firstNameInput.length > 0 &&
+      firstNameInput?.length > 0 &&
       firstNameInput !== account.data.firstName
     ) {
       formData.append('firstName', firstNameInput);
     }
-    if (lastNameInput.length > 0 && lastNameInput !== account.data.lastName) {
+    if (lastNameInput?.length > 0 && lastNameInput !== account.data.lastName) {
       formData.append('lastName', lastNameInput);
     }
-    if (passwordInput.length > 0) {
+    if (passwordInput?.length > 0) {
       formData.append('password', passwordInput);
     }
-    if (confirmPasswordInput.length > 0) {
+    if (confirmPasswordInput?.length > 0) {
       formData.append('confirmPassword', confirmPasswordInput);
     }
 
@@ -87,6 +91,20 @@ const AccountEdit = () => {
         <h1 className="fade-in-left text-primary text-2xl font-semibold">
           Edit Account
         </h1>
+        <div className="flex flex-col items-start gap-4">
+          <h3 className="fade-in-left text-primary text-xl font-semibold">
+            Username
+          </h3>
+          <div className="fade-in-right bg-secondary flex w-full gap-2 rounded-2xl border p-4">
+            <input
+              className="h-full w-full self-center overflow-auto bg-transparent outline-none"
+              type="text"
+              value={usernameInput}
+              onChange={(e) => setUsernameInput(e.target.value)}
+              placeholder="Email"
+            />
+          </div>
+        </div>
         <div className="flex flex-col items-start gap-4">
           <h3 className="fade-in-left text-primary text-xl font-semibold">
             Email
@@ -153,7 +171,7 @@ const AccountEdit = () => {
           </div>
         </div>
 
-        {errors.length > 0 && (
+        {errors?.length > 0 && (
           <div className="flex flex-col gap-3 self-start">
             <span className="text-primary">Error updating account info</span>
             {errors.map((error, index) => (

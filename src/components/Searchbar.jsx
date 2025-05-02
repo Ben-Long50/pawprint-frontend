@@ -18,12 +18,12 @@ const Searchbar = (props) => {
   const { apiUrl } = useContext(AuthContext);
   const { activeProfile } = useContext(GlobalContext);
 
-  const searchHistory = useSearchHistoryQuery(activeProfile.id, apiUrl);
+  const searchHistory = useSearchHistoryQuery(activeProfile?.id, apiUrl);
 
   const searchResults = useSearchResultsMutation(apiUrl);
 
   const handleSearch = async (searchQuery) => {
-    if (searchQuery.length > 0) {
+    if (searchQuery?.length > 0) {
       const result = await searchResults.mutateAsync(searchQuery);
       setSearchString(searchQuery);
       setResults(result || []);
@@ -33,19 +33,19 @@ const Searchbar = (props) => {
     }
   };
 
-  const createSearch = useCreateSearchMutation(activeProfile.id, apiUrl);
+  const createSearch = useCreateSearchMutation(activeProfile?.id, apiUrl);
 
   const handleCreateSearch = (searchedId) => {
     createSearch.mutate(searchedId);
   };
 
-  const deleteSearch = useDeleteSearchMutation(activeProfile.id, apiUrl);
+  const deleteSearch = useDeleteSearchMutation(activeProfile?.id, apiUrl);
 
   const handleDeleteSearch = (searchedId) => {
     deleteSearch.mutate(searchedId);
   };
 
-  const deleteSearchHistory = useDeleteSearchHistory(activeProfile.id, apiUrl);
+  const deleteSearchHistory = useDeleteSearchHistory(activeProfile?.id, apiUrl);
 
   if (searchHistory.isPending || searchHistory.isLoading) {
     return <span></span>;
@@ -81,7 +81,7 @@ const Searchbar = (props) => {
         </div>
       </search>
       <div className="flex flex-col gap-2 p-4">
-        {results.length < 1 ? (
+        {results?.length < 1 ? (
           <>
             <div className="flex items-center justify-between p-2">
               <h3
@@ -182,7 +182,7 @@ const Searchbar = (props) => {
         </div>
       </search>
       <div className="flex flex-col gap-2 p-4">
-        {results.length < 1 ? (
+        {results?.length < 1 ? (
           <>
             <div className="flex items-center justify-between p-2">
               <h3 className="text-primary text-xl font-semibold">Recent</h3>

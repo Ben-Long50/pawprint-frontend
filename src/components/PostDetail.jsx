@@ -33,7 +33,7 @@ const PostDetail = (props) => {
   const inputRef = useRef(null);
 
   const followStatus = useFollowStatusQuery(
-    activeProfile.id,
+    activeProfile?.id,
     props.profile.id,
     apiUrl,
     props.postOpen,
@@ -48,7 +48,7 @@ const PostDetail = (props) => {
   const createComment = useCommentMutation(
     props.post.id,
     props.post.profileId,
-    activeProfile.id,
+    activeProfile?.id,
     apiUrl,
   );
 
@@ -156,9 +156,9 @@ const PostDetail = (props) => {
                   </div>
                   <div className="flex items-center gap-2">
                     <p className="text-primary font-semibold">
-                      {props.post.likes.length +
+                      {props.post.likes?.length +
                         '  ' +
-                        (props.post.likes.length === 1 ? 'like' : 'likes')}
+                        (props.post.likes?.length === 1 ? 'like' : 'likes')}
                     </p>
                     <BookmarkButton post={props.post} />
                   </div>
@@ -176,7 +176,7 @@ const PostDetail = (props) => {
                 {createComment.isPending && (
                   <Loading className="ml-auto" size={1.25} />
                 )}
-                {commentInput.length > 0 && (
+                {commentInput?.length > 0 && (
                   <button
                     className="text-accent font-semibold hover:underline"
                     onClick={(e) => {
@@ -264,9 +264,9 @@ const PostDetail = (props) => {
                   </div>
 
                   <p className="text-primary font-semibold">
-                    {props.post.likes.length +
+                    {props.post.likes?.length +
                       '  ' +
-                      (props.post.likes.length === 1 ? 'like' : 'likes')}
+                      (props.post.likes?.length === 1 ? 'like' : 'likes')}
                   </p>
                   <Timestamp date={props.post.createdAt} />
                 </div>
@@ -282,7 +282,7 @@ const PostDetail = (props) => {
                   {createComment.isPending && (
                     <Loading className="flex-1" size={1.25} />
                   )}
-                  {commentInput.length > 0 && (
+                  {commentInput?.length > 0 && (
                     <button
                       className="text-accent font-semibold hover:underline"
                       onClick={(e) => {

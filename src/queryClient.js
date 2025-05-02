@@ -8,7 +8,7 @@ const queryClient = new QueryClient({
       retry: false,
       refetchOnReconnect: false,
       refetchOnWindowFocus: false,
-      throwOnError: true,
+      throwOnError: false,
     },
     mutations: {
       throwOnError: true,

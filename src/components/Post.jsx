@@ -26,7 +26,7 @@ const Post = (props) => {
   useEffect(() => {
     let status = false;
     props.post.likes.forEach((like) => {
-      if (like.profileId === activeProfile.id) {
+      if (like.profileId === activeProfile?.id) {
         status = true;
       }
     });
@@ -35,7 +35,7 @@ const Post = (props) => {
 
   const toggleLikeStatus = useLikeStatusMutation(
     props.post.id,
-    activeProfile.id,
+    activeProfile?.id,
     apiUrl,
     likeStatus,
     'feed',
@@ -44,7 +44,7 @@ const Post = (props) => {
   const createComment = useCommentMutation(
     props.post.id,
     props.post.profileId,
-    activeProfile.id,
+    activeProfile?.id,
     apiUrl,
   );
 
@@ -103,11 +103,11 @@ const Post = (props) => {
                     onClick={() => toggleLikeStatus.mutate()}
                   />
                 )}
-                <p className="text-primary">{props.post.likes.length}</p>
+                <p className="text-primary">{props.post.likes?.length}</p>
               </div>
               <div className="flex items-center gap-2">
                 <CommentButton onClick={togglePostOpen} />
-                <p>{props.post.comments.length}</p>
+                <p>{props.post.comments?.length}</p>
               </div>
               <ShareButton post={props.post} />
             </div>
@@ -125,7 +125,7 @@ const Post = (props) => {
             {createComment.isPending && (
               <Loading className="flex-1" size={1.25} />
             )}
-            {commentInput.length > 0 && (
+            {commentInput?.length > 0 && (
               <button
                 type="submit"
                 className="text-accent font-semibold hover:underline"

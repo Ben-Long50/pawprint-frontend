@@ -15,14 +15,14 @@ const ShareButton = (props) => {
   const [shareList, setShareList] = useState([]);
 
   const shareProfile = useShareMutation(
-    activeProfile.id,
+    activeProfile?.id,
     props.post.id,
     apiUrl,
   );
 
   useEffect(() => {
     setFollowedProfiles(() => {
-      return activeProfile.following?.map((following) => following.follower);
+      return activeProfile?.following?.map((following) => following.follower);
     });
   }, [activeProfile]);
 

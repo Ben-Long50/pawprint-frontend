@@ -28,7 +28,7 @@ const AuthFormLayout = (props) => {
           {props.label}
         </h1>
         {props.children}
-        {props.errors.length > 0 && (
+        {props.errors?.length > 0 && (
           <div className="flex flex-col gap-3 self-start">
             <span className="text-primary">Error signing in</span>
             {props.errors.map((error, index) => (

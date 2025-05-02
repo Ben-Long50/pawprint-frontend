@@ -31,7 +31,7 @@ const ForeignProfile = () => {
   }, [state]);
 
   const followStatus = useFollowStatusQuery(
-    activeProfile.id,
+    activeProfile?.id,
     profileId,
     apiUrl,
     true,
@@ -51,7 +51,7 @@ const ForeignProfile = () => {
   }, [profile.data, activeFollowing, profileId]);
 
   const setFollowingStatus = useFollowStatusMutation(
-    activeProfile.id,
+    activeProfile?.id,
     profileId,
     followStatus.data,
     apiUrl,

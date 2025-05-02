@@ -73,7 +73,7 @@ const Profile = (props) => {
                 <div className="flex items-center justify-start gap-8">
                   <div className="flex items-center justify-center gap-2">
                     <h2 className="text-primary text-xl">
-                      {posts.data.length}
+                      {posts.data?.length}
                     </h2>
                     <h3 className="text-tertiary text-lg">Posts</h3>
                   </div>
@@ -193,7 +193,7 @@ const Profile = (props) => {
             <hr className="fade-in-bottom bg-secondary my-4" />
             <div className="fade-in-bottom -my-2 grid grid-cols-3 items-center gap-8 px-4">
               <div className="flex flex-col items-center justify-center">
-                <h2 className="text-primary text-lg">{posts.data.length}</h2>
+                <h2 className="text-primary text-lg">{posts.data?.length}</h2>
                 <h3 className="text-tertiary">Posts</h3>
               </div>
               <div
@@ -238,7 +238,7 @@ const Profile = (props) => {
           </>
         )}
 
-        {posts.data.length > 0 ? (
+        {posts.data?.length > 0 ? (
           <div className="fade-in-bottom bg-secondary grid w-full grid-cols-3 gap-0.5 md:gap-1">
             {posts.data.map((post, index) => (
               <PostCard

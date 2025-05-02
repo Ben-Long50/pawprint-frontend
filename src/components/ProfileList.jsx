@@ -16,7 +16,7 @@ const ProfileList = (props) => {
   }, [props.profiles]);
 
   const handleSearch = (query) => {
-    if (query.length > 0) {
+    if (query?.length > 0) {
       setFilteredProfiles(
         profiles.filter((profile) =>
           profile.username.toLowerCase().includes(query.toLowerCase()),

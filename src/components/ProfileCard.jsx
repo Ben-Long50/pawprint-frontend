@@ -9,7 +9,7 @@ const ProfileCard = (props) => {
   return (
     <Link
       to={
-        activeProfile.username !== props.profile.username
+        activeProfile?.username !== props.profile.username
           ? `/profile/${props.profile.username}`
           : '/profile'
       }

@@ -11,7 +11,7 @@ const Bookmarks = () => {
   const { apiUrl } = useContext(AuthContext);
   const { activeProfile } = useContext(GlobalContext);
 
-  const bookmarks = useBookmarkQuery(activeProfile.id, apiUrl);
+  const bookmarks = useBookmarkQuery(activeProfile?.id, apiUrl);
 
   if (bookmarks.isPending || bookmarks.isLoading) {
     return <Loading />;
@@ -26,7 +26,7 @@ const Bookmarks = () => {
             Bookmarked Posts
           </h1>
         </div>
-        {bookmarks.data && bookmarks.data.length < 1 ? (
+        {bookmarks.data && bookmarks.data?.length < 1 ? (
           <h2 className="fade-in-bottom w-full text-center text-2xl font-semibold">
             You have no bookmarked posts
           </h2>

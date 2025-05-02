@@ -10,7 +10,7 @@ const useExplorePostQuery = (activeId, apiUrl) => {
     },
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
-      return lastPage.hasMore ? pages.length + 1 : undefined;
+      return lastPage.hasMore ? pages?.length + 1 : undefined;
     },
   });
 };

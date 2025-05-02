@@ -14,7 +14,7 @@ const Explore = () => {
   const { apiUrl } = useContext(AuthContext);
   const [layoutSize] = useOutletContext();
 
-  const posts = useExplorePostQuery(activeProfile.id, apiUrl);
+  const posts = useExplorePostQuery(activeProfile?.id, apiUrl);
 
   if (posts.isPending || posts.isLoading) {
     return <Loading />;

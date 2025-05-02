@@ -16,7 +16,7 @@ const NavHeader = (props) => {
   const { activeProfile } = useContext(GlobalContext);
   const { layoutSize } = useContext(LayoutContext);
 
-  const notifications = useNotificationQuery(activeProfile.id, apiUrl);
+  const notifications = useNotificationQuery(activeProfile?.id, apiUrl);
 
   const toggleSearchbar = () => {
     if (props.searchVisibility) {
@@ -102,7 +102,7 @@ const NavHeader = (props) => {
               props.activeItem === 'notifications' ? mdiHeart : mdiHeartOutline
             }
             label="Notifications"
-            notifications={notifications.data.length}
+            notifications={notifications.data?.length}
             onClick={() => {
               toggleNotificationbar();
             }}

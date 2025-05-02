@@ -16,7 +16,7 @@ const InputField = (props) => {
         minLength={props.minLength}
       />
       <label
-        className={`${inputRef.current?.value.length > 0 && 'text-transparent'} timing peer-focus:bg-secondary-2 absolute left-3 top-3 transform cursor-text bg-transparent px-1 text-gray-400 transition-all peer-focus:-translate-y-7 peer-focus:text-emerald-400 peer-focus:peer-invalid:text-red-400 dark:peer-focus:text-emerald-300`}
+        className={`${inputRef.current?.value?.length > 0 && 'text-transparent'} timing peer-focus:bg-secondary-2 absolute left-3 top-3 transform cursor-text bg-transparent px-1 text-gray-400 transition-all peer-focus:-translate-y-7 peer-focus:text-emerald-400 peer-focus:peer-invalid:text-red-400 dark:peer-focus:text-emerald-300`}
         htmlFor={props.name}
       >
         {props.label}

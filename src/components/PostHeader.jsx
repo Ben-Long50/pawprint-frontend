@@ -13,7 +13,7 @@ const PostHeader = (props) => {
   const { activeProfile } = useContext(GlobalContext);
 
   const setFollowStatus = useFollowStatusMutation(
-    activeProfile.id,
+    activeProfile?.id,
     props.profile.id,
     props.followStatus,
     apiUrl,
@@ -25,7 +25,7 @@ const PostHeader = (props) => {
     >
       <Link
         to={
-          props.activeProfile.id === props.profile.id
+          props.activeProfile?.id === props.profile.id
             ? `/profile`
             : `/profile/${props.profile.username}`
         }
@@ -45,7 +45,7 @@ const PostHeader = (props) => {
       <div className="text-primary flex items-center">
         <Link
           to={
-            props.activeProfile.id === props.profile.id
+            props.activeProfile?.id === props.profile.id
               ? `/profile`
               : `/profile/${props.profile.username}`
           }

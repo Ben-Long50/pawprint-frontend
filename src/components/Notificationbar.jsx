@@ -10,7 +10,7 @@ const Notificationbar = (props) => {
   const { activeProfile } = useContext(GlobalContext);
 
   const deleteAllNotifications = useDeleteAllNotificationsMutation(
-    activeProfile.id,
+    activeProfile?.id,
     apiUrl,
   );
 
@@ -38,7 +38,7 @@ const Notificationbar = (props) => {
             Clear all
           </button>
         </div>
-        {props.notifications.length > 0 &&
+        {props.notifications?.length > 0 &&
           props.notifications.map((notification) => {
             return (
               <Notification
@@ -73,7 +73,7 @@ const Notificationbar = (props) => {
             Clear all
           </button>
         </div>
-        {props.notifications.length > 0 &&
+        {props.notifications?.length > 0 &&
           props.notifications.map((notification) => {
             return (
               <Notification

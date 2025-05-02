@@ -12,7 +12,7 @@ const BookmarkButton = (props) => {
   const { activeProfile } = useContext(GlobalContext);
 
   const toggleBookmarkStatus = useBookmarkMutation(
-    activeProfile.id,
+    activeProfile?.id,
     props.post.id,
     apiUrl,
   );
@@ -23,7 +23,7 @@ const BookmarkButton = (props) => {
 
   useEffect(() => {
     let status = false;
-    activeProfile.bookmarks.forEach((bookmark) => {
+    activeProfile?.bookmarks.forEach((bookmark) => {
       if (bookmark.postId === props.post.id) {
         status = true;
       }

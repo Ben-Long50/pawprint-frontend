@@ -14,7 +14,7 @@ const PostCard = (props) => {
   useEffect(() => {
     let status = false;
     props.post.likes.forEach((like) => {
-      if (like.profileId === activeProfile.id) {
+      if (like.profileId === activeProfile?.id) {
         status = true;
       }
     });
@@ -23,7 +23,7 @@ const PostCard = (props) => {
 
   const toggleLikeStatus = useLikeStatusMutation(
     props.post.id,
-    activeProfile.id,
+    activeProfile?.id,
     apiUrl,
     likeStatus,
     props.type,

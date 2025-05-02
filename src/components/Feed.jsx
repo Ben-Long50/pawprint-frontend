@@ -14,13 +14,13 @@ const Feed = () => {
   const { activeProfile } = useContext(GlobalContext);
   const { apiUrl } = useContext(AuthContext);
 
-  const feedPosts = useFeedPostQuery(activeProfile.id, apiUrl);
+  const feedPosts = useFeedPostQuery(activeProfile?.id, apiUrl);
 
   if (feedPosts.isPending || feedPosts.isLoading) {
     return <Loading />;
   }
 
-  if (feedPosts.data.pages[0].totalPosts === 0) {
+  if (!feedPosts.data || feedPosts.data.pages[0].totalPosts === 0) {
     return (
       <div className="fade-in-bottom mt-4 flex flex-col items-center gap-4 px-2 md:mt-8">
         <h2 className="text-primary text-center text-2xl font-semibold">

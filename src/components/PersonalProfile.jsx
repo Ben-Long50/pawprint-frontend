@@ -21,7 +21,7 @@ const PersonalProfile = () => {
     >
       <Link
         tabIndex={-1}
-        to={`${activeProfile.username}/edit`}
+        to={`${activeProfile?.username}/edit`}
         state={activeProfile}
       >
         <Button

@@ -15,23 +15,23 @@ const GlobalProvider = ({ children }) => {
   const activeProfile = useActiveProfileQuery(apiUrl);
 
   useEffect(() => {
-    if (activeProfile.data) {
-      const followers = activeProfile.data.followers.map(
+    if (activeProfile?.data) {
+      const followers = activeProfile?.data.followers.map(
         (follower) => follower.followerId,
       );
-      const following = activeProfile.data.following.map(
+      const following = activeProfile?.data.following.map(
         (following) => following.profileId,
       );
       setActiveFollowers(followers);
       setActiveFollowing(following);
     }
-  }, [activeProfile.data]);
+  }, [activeProfile?.data]);
 
   if (
     profiles.isPending ||
     profiles.isLoading ||
-    activeProfile.isPending ||
-    activeProfile.isLoading
+    activeProfile?.isPending ||
+    activeProfile?.isLoading
   ) {
     return <span></span>;
   }
@@ -40,7 +40,7 @@ const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         profiles: profiles.data,
-        activeProfile: activeProfile.data,
+        activeProfile: activeProfile?.data,
         activeFollowers,
         activeFollowing,
       }}

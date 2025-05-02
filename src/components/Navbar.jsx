@@ -31,7 +31,7 @@ const Navbar = (props) => {
   const { apiUrl } = useContext(AuthContext);
   const { activeProfile } = useContext(GlobalContext);
 
-  const notifications = useNotificationQuery(activeProfile.id, apiUrl);
+  const notifications = useNotificationQuery(activeProfile?.id, apiUrl);
 
   useEffect(() => {
     const handleResize = () => {
@@ -165,7 +165,7 @@ const Navbar = (props) => {
               props.activeItem === 'notifications' ? mdiHeart : mdiHeartOutline
             }
             label="Notifications"
-            notifications={notifications.data.length}
+            notifications={notifications.data?.length}
             onClick={() => {
               props.changeActiveItem('notifications');
               toggleNotificationbar();
