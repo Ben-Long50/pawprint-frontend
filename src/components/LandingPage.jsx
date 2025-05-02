@@ -122,7 +122,7 @@ const LandingPage = () => {
           </div>
           <div className="grid max-md:grid-rows-3 md:grid-cols-3">
             <LandingPageImage
-              className={`${showInfoRef2 ? 'opacity-100 md:-translate-x-8' : 'opacity-0 max-md:translate-y-16 md:-translate-x-[15rem]'} z-30 transition-all delay-[1.5s] duration-[2s] max-md:z-10 max-md:justify-self-end max-md:delay-[.5s] md:w-full md:translate-y-16`}
+              className={`${showInfoRef2 ? 'opacity-100 md:translate-x-8' : 'opacity-0 max-md:translate-y-16 md:-translate-x-[15rem]'} z-30 transition-all delay-[1.5s] duration-[2s] max-md:z-10 max-md:justify-self-end max-md:delay-[.5s] md:w-full md:translate-y-16`}
               image="https://res.cloudinary.com/dm4tmla72/image/upload/v1731620285/pawprint/nvvoodlb3dhekixmoj5y.jpg"
             />
             <LandingPageImage
@@ -130,7 +130,7 @@ const LandingPage = () => {
               image="https://res.cloudinary.com/dm4tmla72/image/upload/v1731362333/pawprint/kwudu6g20ctl96j2q3sp.jpg"
             />
             <LandingPageImage
-              className={`${showInfoRef2 ? 'opacity-100 max-md:-translate-y-32 md:translate-x-8' : 'opacity-0 max-md:translate-y-0 md:-translate-x-[19rem]'} z-10 transition-all delay-[.5s] duration-[2s] max-md:z-30 max-md:justify-self-start max-md:delay-[1.5s] md:w-full md:-translate-x-8`}
+              className={`${showInfoRef2 ? 'opacity-100 max-md:-translate-y-32 md:-translate-x-8' : 'opacity-0 max-md:translate-y-0 md:-translate-x-[19rem]'} z-10 transition-all delay-[.5s] duration-[2s] max-md:z-30 max-md:justify-self-start max-md:delay-[1.5s] md:w-full md:-translate-x-8`}
               image="https://res.cloudinary.com/dm4tmla72/image/upload/v1731094920/pawprint/h8crzzbvtooet29abwnm.jpg"
             />
           </div>
